@@ -1,0 +1,16 @@
+.category{
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+.category .image img{
+    object-fit: cover;
+    height: 300px;
+    width: 200px;
+    transition: all 0.3s ease;
+}
+.category:hover .image img{
+    transform: scale(1.1);
+}
+.category:hover{
+    box-shadow: var(--shadow-main)
+}

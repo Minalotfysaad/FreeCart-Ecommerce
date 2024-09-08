@@ -1,0 +1,7 @@
+<section>
+    <div class="d-flex justify-content-center align-items-center flex-row mb-4">
+        <i class="fas fa-search me-2 text-main"></i>
+        <input type="text" class="form-control w-50" [(ngModel)]="searchTerm" placeholder="Search product by name...">
+    </div>
+    <app-products [searchTerm]="searchTerm"></app-products>
+</section>

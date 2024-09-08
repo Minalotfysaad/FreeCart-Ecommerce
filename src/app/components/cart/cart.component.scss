@@ -1,0 +1,18 @@
+.image img {
+  object-fit: contain;
+  height: 150px;
+  width: 150px;
+}
+.remove-btn {
+  font-size: 14px;
+}
+.counter-btn {
+  transition: all 0.3s ease;
+}
+.counter-btn:hover {
+  color: var(--main-color);
+}
+.counter span {
+  border: 1px solid var(--main-color);
+  padding: 10px 15px;
+}

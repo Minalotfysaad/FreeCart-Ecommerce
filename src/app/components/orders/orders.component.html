@@ -1,0 +1,60 @@
+<section class="py-4 bg-main-light p-4 rounded-4 my-4 mx-auto">
+    <h1 class="h3 fw-bold mb-3 text-main">Complete your order: </h1>
+    <form [formGroup]="orderForm" (ngSubmit)="orderSubmit()" class="p-3">
+
+        <div class="mb-3">
+            <label for="details" class="mb-1">Details: </label>
+            <input [ngClass]="{ 'is-invalid': orderForm.get('details')?.dirty && orderForm.get('details')?.errors ,
+                'is-valid': orderForm.get('details')?.dirty && !orderForm.get('details')?.errors}"
+                formControlName="details" type="details" class="form-control" placeholder="Enter your details" />
+
+            @if(orderForm.get('details')?.touched || orderForm.get('details')?.dirty){
+            <div>
+                @if(orderForm.get('details')?.getError('required')){
+                <small class="text-danger ms-2 mb-0"><i class="fa-solid fa-circle-exclamation me-2"></i>Details are
+                    required.</small>
+                }
+            </div>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="phone" class="mb-1">Phone: </label>
+            <input [ngClass]="{ 'is-invalid': orderForm.get('phone')?.dirty && orderForm.get('phone')?.errors ,
+                'is-valid': orderForm.get('phone')?.dirty && !orderForm.get('phone')?.errors}" formControlName="phone"
+                type="phone" class="form-control" placeholder="Enter your phone number" maxlength="11" />
+
+            @if(orderForm.get('phone')?.touched && orderForm.get('phone')?.dirty){
+            <div>
+                @if(orderForm.get('phone')?.getError('required')){
+                <small class="text-danger ms-2 mb-0"><i class="fa-solid fa-circle-exclamation me-2"></i>Phone is
+                    required.</small>
+                }
+                @else if(orderForm.get('phone')?.getError('pattern')){
+                <small class="text-danger ms-2 mb-0"><i class="fa-solid fa-circle-exclamation me-2"></i>Enter a valid
+                    phone number.</small>
+                }
+            </div>
+            }
+        </div>
+        <div class="mb-3">
+            <label for="city" class="mb-1">City: </label>
+            <input [ngClass]="{ 'is-invalid': orderForm.get('city')?.dirty && orderForm.get('city')?.errors ,
+                'is-valid': orderForm.get('city')?.dirty && !orderForm.get('city')?.errors}"
+                formControlName="city" type="city" class="form-control" placeholder="Enter your city" />
+
+            @if(orderForm.get('city')?.touched && orderForm.get('city')?.dirty){
+            <div>
+                @if(orderForm.get('city')?.getError('required')){
+                <small class="text-danger ms-2 mb-0"><i class="fa-solid fa-circle-exclamation me-2"></i>City is
+                    required.</small>
+                }
+            </div>
+            }
+        </div>
+
+        <button [disabled]="orderForm.invalid || isLoading" type="submit"
+            class="btn-main d-block ms-auto text-nowrap mt-4">Check Out
+            @if (isLoading) {<span><i class="fas fa-spin fa-spinner ms-2"></i></span>}</button>
+    </form>
+</section>

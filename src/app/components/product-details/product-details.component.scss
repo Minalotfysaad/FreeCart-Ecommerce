@@ -1,0 +1,13 @@
+@media (max-width: 768px) {
+  .details-slider .product-img img {
+    max-height: 400px;
+    width: auto !important;
+    display: block;
+    margin: auto;
+  }
+}
+@media (max-width: 576px) {
+  .details-slider .product-img img {
+    max-height: 300px;
+  }
+}

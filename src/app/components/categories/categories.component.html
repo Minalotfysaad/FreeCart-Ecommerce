@@ -1,0 +1,16 @@
+<section>
+    <div class="row g-3">
+        @for (category of categoriesList; track category._id) {
+        <div class="col-md-4 col-sm-6 ">
+            <div class="category p-2 cursor-pointer rounded-3">
+                <div class="image overflow-hidden mb-2">
+                    <img [src]="category.image" [alt]="category.name" class="w-100">
+                </div>
+                <div class="text p-1">
+                    <h3 class="h4 text-main text-center py-1 fw-bold">{{category.name}}</h3>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</section>

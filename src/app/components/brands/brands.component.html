@@ -1,0 +1,16 @@
+<section>
+    <div class="row g-3">
+        @for (brand of BrandsList; track brand._id) {
+        <div class="col-lg-3 col-md-4 col-sm-6 ">
+            <div class="brand p-2 cursor-pointer rounded-3">
+                <div class="image overflow-hidden mb-2">
+                    <img [src]="brand.image" [alt]="brand.name" class="w-100">
+                </div>
+                <div class="text p-1">
+                    <h3 class="h4 text-main text-center py-1 fw-bold">{{brand.name}}</h3>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+</section>

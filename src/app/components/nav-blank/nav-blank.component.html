@@ -1,0 +1,75 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+    <div class="container">
+        <a class="navbar-brand" routerLink="home"><img src="./assets/images/freshcart-logo.svg"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active text-capitalize me-1" aria-current="page" routerLink="/home"
+                        routerLinkActive="active-link">home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-capitalize me-1" aria-current="page" routerLink="/products"
+                        routerLinkActive="active-link">products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-capitalize me-1" aria-current="page" routerLink="/categories"
+                        routerLinkActive="active-link">categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-capitalize me-1" aria-current="page" routerLink="/brands"
+                        routerLinkActive="active-link">brands</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <!-- <div class="socials d-lg-flex d-md-none">
+                    <li class="nav-item">
+                        <a class="nav-link active text-capitalize me-1" aria-current="page"
+                            href="https://github.com/Minalotfysaad" target="_blank">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-capitalize me-1" aria-current="page"
+                            href="https://www.linkedin.com/in/minalotfysaad/" target="_blank">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                    </li>
+                </div> -->
+
+                <li class="nav-item d-flex justify-content-lg-center justify-content-start align-items-center">
+                    <a class="cart nav-link active text-capitalize me-1 cursor-pointer" aria-current="page"
+                        routerLink="/wishlist" routerLinkActive="cart-active">
+                        <div class="position-relative">
+                            @if (this._WishlistService.wishlistCount > 0) {<span
+                                class="counter position-absolute text-center">{{_WishlistService.wishlistCount}}</span>}
+                            <i class="fa-solid fa-heart fa-fw"></i>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="nav-item d-flex justify-content-lg-center justify-content-start align-items-center">
+                    <a class="cart nav-link active text-capitalize me-1 cursor-pointer" aria-current="page"
+                        routerLink="/cart" routerLinkActive="cart-active">
+                        <div class="position-relative">
+                            @if (this._CartService.cartCount > 0) {<span
+                                class="counter position-absolute text-center">{{_CartService.cartCount}}</span>}
+                            <i class="fa-solid fa-cart-shopping fa-fw"></i>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item logout">
+                    <a class="nav-link active text-capitalize ms-2 btn-sec" aria-current="page"
+                        (click)="_AuthService.logout()">
+                        Logout
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>

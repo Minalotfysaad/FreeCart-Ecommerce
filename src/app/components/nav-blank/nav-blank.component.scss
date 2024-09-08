@@ -1,0 +1,35 @@
+.navbar a {
+  transition: all 0.3s ease !important;
+}
+.navbar a:hover {
+  color: var(--main-color);
+}
+ a i {
+  font-size: 25px;
+  transition: all 0.2s ease;
+}
+.socials li a :hover {
+  color: var(--main-color);
+}
+.cart {
+  font-size: 20px;
+}
+
+.logout:hover a {
+  color: white !important;
+}
+.cart-active {
+  color: var(--main-color) !important;
+}
+.counter {
+  background-color: var(--main-color) !important;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  padding: 3px;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  right: -30%;
+  bottom: 60%;
+}

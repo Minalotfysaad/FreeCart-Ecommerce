@@ -1,0 +1,15 @@
+section {
+  border: 1px solid var(--main-color);
+  width: 50%;
+}
+@media (max-width: 992px) {
+  section {
+    width: 100%;
+  }
+}
+.login-link {
+  font-size: 14px;
+}
+.login-link:hover {
+  text-decoration: underline;
+}

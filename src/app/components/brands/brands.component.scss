@@ -1,0 +1,16 @@
+.brand{
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+.brand .image img{
+    // object-fit: cover;
+    // height: 200px;
+    // width: 200px;
+    transition: all 0.3s ease;
+}
+.brand:hover .image img{
+    transform: scale(1.1);
+}
+.brand:hover{
+    box-shadow: var(--shadow-main)
+}

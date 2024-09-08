@@ -1,0 +1,30 @@
+@if (detailsProduct) {
+<div class="row">
+    <div class="details-slider col-lg-4 col-md-6">
+        <owl-carousel-o [options]="customOptionsDetails">
+            <ng-container>
+                @for (img of detailsProduct.images ; track $index) {
+                <ng-template carouselSlide>
+                    <div class="product-img">
+                        <img [src]="detailsProduct.images[$index]" [alt]="detailsProduct.title" class="w-100">
+                    </div>
+                </ng-template>
+                }
+            </ng-container>
+        </owl-carousel-o>
+
+    </div>
+    <div class="col-lg-8 col-md-6">
+        <div class="details">
+            <div class="rating">
+                <i class="fas fa-star rating-color me-1"></i>
+                <span class="text-muted">{{detailsProduct.ratingsAverage}}</span>
+            </div>
+            <h2 class="mb-3">{{detailsProduct.title}}</h2>
+            <p class="text-muted mb-4">{{detailsProduct.description}}</p>
+            <h3 class="small text-main">{{detailsProduct.category.name}}</h3>
+            <span><span class="h2">{{detailsProduct.price}}</span> EGP</span>
+            <button class="btn-main w-100 mt-3" (click)="addToCart(detailsProduct._id)">Add to cart</button>
+        </div>
+    </div>
+</div>}

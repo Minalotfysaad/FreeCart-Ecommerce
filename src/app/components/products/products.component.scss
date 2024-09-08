@@ -1,0 +1,30 @@
+.product button{
+    transform: translateY(120%);
+    transition: all 0.3s ease;
+}
+.product:hover button{
+    transform: translate(0%);
+}
+.product .image img{
+    transition: all 0.3s ease;
+}
+.product:hover .image img{
+    transform: scale(1.1);
+}
+@media (max-width: 576px) {
+    .product .image img{
+        max-height: 300px;
+        width: auto !important;
+        display: block;
+        margin: auto;
+    }
+}
+.product .fa-heart{
+    color: #e71d2d;
+    opacity: 0;
+    transition: all 0.3s ease;
+
+}
+.product:hover .fa-heart{
+    opacity: 1;
+}

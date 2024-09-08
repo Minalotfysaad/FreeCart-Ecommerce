@@ -1,0 +1,19 @@
+.row .col-lg-9 img {
+  object-fit: cover;
+  height: 400px;
+  width: 100%;
+}
+.row .col-lg-3 img {
+  object-fit: cover;
+  height: 200px;
+  width: 100%;
+}
+@media (max-width: 992px) {
+  .row .col-lg-9 img {
+    object-fit: contain;
+    height: auto;
+  }
+  .row .col-lg-3 {
+    display: none;
+  }
+}

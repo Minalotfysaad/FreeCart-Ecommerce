@@ -1,0 +1,53 @@
+<section class="py-4 bg-main-light p-4 rounded-4 my-4 mx-auto shadow">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+        <h1 class="h2 fw-bold text-main mb-0">Your Cart: </h1>
+        @if (cartDetails.products && cartDetails.products.length) {
+        <button class="remove-btn btn btn-outline-danger" (click)="clearCart()">Clear Cart
+        </button>
+        }
+    </div>
+    @if(cartDetails.products && cartDetails.products.length == 0){
+    <h5 class="text-center fw-bold display-6">Your cart is empty</h5>
+    }
+    @for (item of cartDetails.products; track item.product._id) {
+    <div class="row p-3 border-bottom">
+        <div class="col-md-2">
+            <!-- Product Image -->
+            <div class="image mb-md-0 mb-3">
+                <img [src]="item.product.imageCover" [alt]="item.product.title" class="w-100">
+            </div>
+        </div>
+        <div class="col-md-10 d-flex align-items-center justify-content-between gap-md-5 gap-2">
+            <div>
+                <!-- Product Details -->
+                <h3 class="h5">{{item.product.title}}</h3>
+                <p class="text-main mb-0">Price: <span>{{item.price}}</span> EGP</p>
+                <p class="mb-0">Quantity: <span>{{item.count}}</span></p>
+                <button class="remove-btn btn btn-outline-danger mt-3 " (click)="removeFromCart(item.product._id)"><i
+                        class="fa-solid fa-trash me-2"></i> Remove
+                </button>
+            </div>
+
+            <div class="counter text-nowrap">
+                <!-- Counter -->
+                <i class="fa-solid fa-circle-plus fa-xl counter-btn cursor-pointer"
+                    (click)="updateCart(item.product._id, item.count + 1)"></i>
+                <span class="mx-2 bg-white h5 rounded-3">{{item.count}}</span>
+                <i class="fa-solid fa-circle-minus fa-xl counter-btn cursor-pointer"
+                    (click)="updateCart(item.product._id, item.count - 1)"></i>
+            </div>
+        </div>
+    </div>
+    }
+
+    <div class="mt-4">
+        @if (cartDetails.products && cartDetails.products.length) {
+        <p class="text-end">Total Price: <span class="fw-bold">{{cartDetails.totalCartPrice}}</span> EGP</p>
+        <button class="btn-main d-block ms-auto text-nowrap" [routerLink]="['/orders' , cartDetails._id]">Order
+            Now</button>
+        }
+    </div>
+
+
+
+</section>

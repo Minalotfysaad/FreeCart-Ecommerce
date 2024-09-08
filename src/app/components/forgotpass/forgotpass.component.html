@@ -1,0 +1,102 @@
+<section class="py-4 bg-main-light p-4 rounded-4 my-4 mx-auto">
+    <h1 class="h3 fw-bold mb-3 text-main">Reset Password: </h1>
+    @if (step == 1) { <form [formGroup]="verifyEmailForm" (ngSubmit)="verifyEmailSubmit()" class="p-3">
+
+        <div class="mb-3">
+            <label for="email" class="mb-1">Email: </label>
+            <input [ngClass]="{ 'is-invalid': verifyEmailForm.get('email')?.dirty && verifyEmailForm.get('email')?.errors ,
+            'is-valid': verifyEmailForm.get('email')?.dirty && !verifyEmailForm.get('email')?.errors}"
+                formControlName="email" type="email" class="form-control" placeholder="Enter your email" />
+
+            @if(verifyEmailForm.get('email')?.touched || verifyEmailForm.get('email')?.dirty){
+            <div>
+                @if(verifyEmailForm.get('email')?.getError('required')){
+                <small class="text-danger ms-2 mb-0"><i class="fa-solid fa-circle-exclamation me-2"></i>Email is
+                    required.</small>
+                }
+                @else if (verifyEmailForm.get('email')?.getError('email')) {
+                <small class="text-danger ms-2 mb-0"><i class="fa-solid fa-circle-exclamation me-2"></i>Enter a valid
+                    email.</small>
+                }
+            </div>
+            }
+        </div>
+
+        <button [disabled]="verifyEmailForm.invalid || isLoading" type="submit"
+            class="btn-main d-block ms-auto text-nowrap mt-4">Send
+            Code
+            @if (isLoading) {<span><i class="fas fa-spin fa-spinner ms-2"></i></span>}</button>
+    </form>}
+
+    @if (step == 2) { <form [formGroup]="verifyCodeForm" (ngSubmit)="verifyCodeSubmit()" class="p-3">
+
+        <div class="mb-3">
+            <label for="email" class="mb-1">Code: </label>
+            <input [ngClass]="{ 'is-invalid': verifyCodeForm.get('resetCode')?.dirty && verifyCodeForm.get('resetCode')?.errors ,
+            'is-valid': verifyCodeForm.get('resetCode')?.dirty && !verifyCodeForm.get('resetCode')?.errors}"
+                formControlName="resetCode" type="text" class="form-control"
+                placeholder="Enter the code sent to your email" />
+
+            @if(verifyCodeForm.get('resetCode')?.touched || verifyCodeForm.get('resetCode')?.dirty){
+            <div>
+                @if(verifyCodeForm.get('resetCode')?.getError('required')){
+                <small class="text-danger ms-2 mb-0"><i class="fa-solid fa-circle-exclamation me-2"></i>Reset Code is
+                    required.</small>
+                }
+            </div>
+            }
+        </div>
+
+        <button [disabled]="verifyCodeForm.invalid || isLoading" type="submit"
+            class="btn-main d-block ms-auto text-nowrap mt-4">Send
+            Code
+            @if (isLoading) {<span><i class="fas fa-spin fa-spinner ms-2"></i></span>}</button>
+    </form>}
+    @if (step == 3) { <form [formGroup]="resetPassForm" (ngSubmit)="resetPassSubmit()" class="p-3">
+
+        <div class="mb-3">
+            <label for="email" class="mb-1">Email: </label>
+            <input readonly [ngClass]="{ 'is-invalid': resetPassForm.get('email')?.dirty && resetPassForm.get('email')?.errors ,
+                'is-valid': resetPassForm.get('email')?.dirty && !resetPassForm.get('email')?.errors}"
+                formControlName="email" type="email" class="form-control" placeholder="Enter your email" />
+
+            @if(resetPassForm.get('email')?.touched || resetPassForm.get('email')?.dirty){
+            <div>
+                @if(resetPassForm.get('email')?.getError('required')){
+                <small class="text-danger ms-2 mb-0"><i class="fa-solid fa-circle-exclamation me-2"></i>Email is
+                    required.</small>
+                }
+                @else if (resetPassForm.get('email')?.getError('email')) {
+                <small class="text-danger ms-2 mb-0"><i class="fa-solid fa-circle-exclamation me-2"></i>Enter a valid
+                    email.</small>
+                }
+            </div>
+            }
+        </div>
+
+        <div class="mb-3">
+            <label for="newPassword" class="mb-1">New Password: </label>
+            <input [ngClass]="{ 'is-invalid': resetPassForm.get('newPassword')?.dirty && resetPassForm.get('newPassword')?.errors ,
+                'is-valid': resetPassForm.get('name')?.dirty && !resetPassForm.get('newPassword')?.errors}"
+                formControlName="newPassword" type="password" class="form-control"
+                placeholder="Enter your new password" />
+
+            @if(resetPassForm.get('newPassword')?.touched && resetPassForm.get('newPassword')?.dirty){
+            <div>
+                @if(resetPassForm.get('newPassword')?.getError('required')){
+                <small class="text-danger ms-2 mb-0"><i class="fa-solid fa-circle-exclamation me-2"></i>New Password is
+                    required.</small>
+                }
+                @else if(resetPassForm.get('newPassword')?.getError('pattern')){
+                <small class="text-danger ms-2 mb-0"><i class="fa-solid fa-circle-exclamation me-2"></i>New password
+                    must be
+                    at least 6 characters.</small>
+                }
+            </div>
+            }
+        </div>
+        <button [disabled]="verifyEmailForm.invalid || isLoading" type="submit"
+            class="btn-main d-block ms-auto text-nowrap mt-4">Reset Password
+            @if (isLoading) {<span><i class="fas fa-spin fa-spinner ms-2"></i></span>}</button>
+    </form>}
+</section>
