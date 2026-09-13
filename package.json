@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:gh-pages": "ng build --configuration production --base-href /FreeCart-Ecommerce/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:ecommerce": "node dist/ecommerce/server/server.mjs"
